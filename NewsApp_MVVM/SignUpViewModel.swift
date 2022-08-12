@@ -1,5 +1,5 @@
 //
-//  LoginViewModel.swift
+//  SignUpViewModel.swift
 //  NewsApp_MVVM
 //
 //  Created by t032fj on 2022/08/12.
@@ -9,13 +9,13 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class LoginViewModel {
+class SignUpViewModel {
     
     let errorValue: Observable<String>
     let idTextPublishSubject = PublishSubject<String>()
     let passwordTextPublishSubject = PublishSubject<String>()
     
-    init(model: LoginModelProtocol) {
+    init(model: SignUpModelProtocol) {
         let event = Observable
             .combineLatest(idTextPublishSubject.asObservable().startWith(""), passwordTextPublishSubject.asObservable())
             .skip(1)
@@ -49,4 +49,3 @@ class LoginViewModel {
             .startWith(false)
     }
 }
-
